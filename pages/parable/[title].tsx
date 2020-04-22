@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 import fetch from 'node-fetch'
 
@@ -15,7 +16,7 @@ const Parable = ({parable, parable_content}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <a href="/"><button>Back to Home</button></a>   
+        <Link href="/"><a><button>Back to Home</button></a></Link>   
         <h1 className="title">{parable.title}</h1>
         { parable.startVerse !== parable.endVerse
           ?
@@ -192,7 +193,7 @@ const Parable = ({parable, parable_content}) => {
   )
 }
 
-export const getStaticPaths: any = () => {
+export const getStaticPaths: any = async () => {
   const parables_path = path.join(process.cwd(), 'parables.json')
   const parables = JSON.parse(fs.readFileSync(parables_path, 'utf8'))
   

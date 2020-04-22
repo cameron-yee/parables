@@ -1,11 +1,12 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 import { GetStaticProps } from 'next'
 
 import fs from 'fs'
 import path from 'path'
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const parables_path = path.join(process.cwd(), 'parables.json')
   const parables = JSON.parse(fs.readFileSync(parables_path, 'utf8'))  
 
@@ -32,15 +33,17 @@ const IndexPage = ({ parables }) => {
         <div className="grid">
           { parables.map((parable, index) => {
               return (
-                <a href={`/parable/${parable.title.toLowerCase().replace(/\s/g, '-')}`} className="card" key={`parable-${index}`}>
-                  <h3>{ parable.title }</h3>
-                  { parable.startVerse !== parable.endVerse
-                    ?
-                    <p className="verse">{parable.book} {parable.chapter}:{parable.startVerse}-{parable.endVerse}</p>
-                    :
-                    <p className="verse">{parable.book} {parable.chapter}:{parable.startVerse}</p>
-                  }
-                </a>
+                <Link href={`/parable/${parable.title.toLowerCase().replace(/\s/g, '-')}`} key={`parable-${index}`}>
+                  <a className="card">
+                    <h3>{ parable.title }</h3>
+                    { parable.startVerse !== parable.endVerse
+                      ?
+                      <p className="verse">{parable.book} {parable.chapter}:{parable.startVerse}-{parable.endVerse}</p>
+                      :
+                      <p className="verse">{parable.book} {parable.chapter}:{parable.startVerse}</p>
+                    }
+                  </a>
+                </Link>
               )
             })
           }
