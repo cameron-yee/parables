@@ -1,0 +1,296 @@
+[
+  {
+    "title": "The Lamp",
+    "book": "Matthew",
+    "chapter": 5,
+    "startVerse": 14,
+    "endVerse": 16
+  },
+  {
+    "title": "The Speck and The Log",
+    "book": "Matthew",
+    "chapter": 7,
+    "startVerse": 1,
+    "endVerse": 5
+  },
+  {
+    "title": "New Cloth on Old Garment",
+    "book": "Matthew",
+    "chapter": 9,
+    "startVerse": 16,
+    "endVerse": 17
+  },
+  {
+    "title": "The Divided Kingdom",
+    "book": "Matthew",
+    "chapter": 12,
+    "startVerse": 24,
+    "endVerse": 30 
+  },
+  {
+    "title": "The Sower",
+    "book": "Matthew",
+    "chapter": 13,
+    "startVerse": 1,
+    "endVerse": 23 
+  },
+  {
+    "title": "The Weeds Among the Wheat",
+    "book": "Matthew",
+    "chapter": 13,
+    "startVerse": 24,
+    "endVerse": 30 
+  },
+  {
+    "title": "The Mustard Seed",
+    "book": "Matthew",
+    "chapter": 13,
+    "startVerse": 31,
+    "endVerse": 32
+  },
+  {
+    "title": "The Leaven",
+    "book": "Matthew",
+    "chapter": 13,
+    "startVerse": 33,
+    "endVerse": 34 
+  },
+  {
+    "title": "Hidden Treasure",
+    "book": "Matthew",
+    "chapter": 13,
+    "startVerse": 44,
+    "endVerse": 44 
+  },
+  {
+    "title": "Pearl of Great Price",
+    "book": "Matthew",
+    "chapter": 13,
+    "startVerse": 45,
+    "endVerse": 46 
+  },
+  {
+    "title": "The Net",
+    "book": "Matthew",
+    "chapter": 13,
+    "startVerse": 47,
+    "endVerse": 50 
+  },
+  {
+    "title": "The Heart of Man",
+    "book": "Matthew",
+    "chapter": 15,
+    "startVerse": 10,
+    "endVerse": 20 
+  },
+  {
+    "title": "The Lost Sheep",
+    "book": "Matthew",
+    "chapter": 18,
+    "startVerse": 10,
+    "endVerse": 14 
+  },
+  {
+    "title": "The Unforgiving Servant",
+    "book": "Matthew",
+    "chapter": 18,
+    "startVerse": 23,
+    "endVerse": 35 
+  },
+  {
+    "title": "Laborers in the Vineyard",
+    "book": "Matthew",
+    "chapter": 20,
+    "startVerse": 1,
+    "endVerse": 16 
+  },
+  {
+    "title": "The Two Sons",
+    "book": "Matthew",
+    "chapter": 21,
+    "startVerse": 28,
+    "endVerse": 32 
+  },
+  {
+    "title": "The Tenant Farmers",
+    "book": "Matthew",
+    "chapter": 21,
+    "startVerse": 33,
+    "endVerse": 45 
+  },
+  {
+    "title": "Marriage Feast or Great Banquet",
+    "book": "Matthew",
+    "chapter": 22,
+    "startVerse": 1,
+    "endVerse": 14 
+  },
+  {
+    "title": "The Budding Fig Tree",
+    "book": "Matthew",
+    "chapter": 24,
+    "startVerse": 32,
+    "endVerse": 35 
+  },
+  {
+    "title": "The Faithful vs. The Wicked Servant",
+    "book": "Matthew",
+    "chapter": 24,
+    "startVerse": 45,
+    "endVerse": 51 
+  },
+  {
+    "title": "The Ten Virgins",
+    "book": "Matthew",
+    "chapter": 25,
+    "startVerse": 1,
+    "endVerse": 13 
+  },
+  {
+    "title": "Ten Talents or Gold Coins",
+    "book": "Matthew",
+    "chapter": 25,
+    "startVerse": 14,
+    "endVerse": 30 
+  },
+  {
+    "title": "The Lamp (Mark)",
+    "book": "Mark",
+    "chapter": 4,
+    "startVerse": 21,
+    "endVerse": 25 
+  },
+  {
+    "title": "New Cloth on Old Garment (Mark)",
+    "book": "Mark",
+    "chapter": 2,
+    "startVerse": 21,
+    "endVerse": 22 
+  },
+  {
+    "title": "The Divided Kingdom (Mark)",
+    "book": "Mark",
+    "chapter": 3,
+    "startVerse": 23,
+    "endVerse": 27 
+  },
+  {
+    "title": "The Sower (Mark)",
+    "book": "Mark",
+    "chapter": 4,
+    "startVerse": 1,
+    "endVerse": 20 
+  },
+  {
+    "title": "The Growing Seed",
+    "book": "Mark",
+    "chapter": 4,
+    "startVerse": 26,
+    "endVerse": 29 
+  },
+  {
+    "title": "The Mustard Seed (Mark)",
+    "book": "Mark",
+    "chapter": 4,
+    "startVerse": 30,
+    "endVerse": 34 
+  },
+  {
+    "title": "The Heart of Man",
+    "book": "Mark",
+    "chapter": 7,
+    "startVerse": 14,
+    "endVerse": 23 
+  },
+  {
+    "title": "The Tenant Farmers (Mark)",
+    "book": "Mark",
+    "chapter": 12,
+    "startVerse": 1,
+    "endVerse": 12 
+  },
+  {
+    "title": "The Budding Fig Tree (Mark)",
+    "book": "Mark",
+    "chapter": 13,
+    "startVerse": 28,
+    "endVerse": 33 
+  },
+  {
+    "title": "The Faithful vs. The Wicked Servant (Mark)",
+    "book": "Mark",
+    "chapter": 13,
+    "startVerse": 34,
+    "endVerse": 37 
+  },
+  {
+    "title": "The Good Samaritan",
+    "book": "Luke",
+    "chapter": 10,
+    "startVerse": 29,
+    "endVerse": 37 
+  },
+  {
+    "title": "The Friend at Midnight",
+    "book": "Luke",
+    "chapter": 11,
+    "startVerse": 5,
+    "endVerse": 13 
+  },
+  {
+    "title": "The Rich Fool",
+    "book": "Luke",
+    "chapter": 12,
+    "startVerse": 13,
+    "endVerse": 21 
+  },
+  {
+    "title": "The Barren Fig Tree",
+    "book": "Luke",
+    "chapter": 13,
+    "startVerse": 6,
+    "endVerse": 9 
+  },
+  {
+    "title": "The Invited Guests",
+    "book": "Luke",
+    "chapter": 14,
+    "startVerse": 7,
+    "endVerse": 14 
+  },
+  {
+    "title": "The Lost Coin",
+    "book": "Luke",
+    "chapter": 15,
+    "startVerse": 8,
+    "endVerse": 10 
+  },
+  {
+    "title": "The Prodigal Son",
+    "book": "Luke",
+    "chapter": 15,
+    "startVerse": 11,
+    "endVerse": 32 
+  },
+  {
+    "title": "The Rich Man and Lazarus",
+    "book": "Luke",
+    "chapter": 16,
+    "startVerse": 19,
+    "endVerse": 31 
+  },
+  {
+    "title": "The Persistant Widow",
+    "book": "Luke",
+    "chapter": 18,
+    "startVerse": 1,
+    "endVerse": 8 
+  },
+  {
+    "title": "The Pharisee and The Tax Collector",
+    "book": "Luke",
+    "chapter": 18,
+    "startVerse": 9,
+    "endVerse": 14 
+  }
+]
