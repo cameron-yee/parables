@@ -8,12 +8,14 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import fs from 'fs'
 import path from 'path'
 
-import { Parable } from '../../interfaces'
+import { Parable, Verse } from '../../interfaces'
 
 
 // Local interfaces
 interface ParableContent {
   text: string
+  reference: string,
+  verses: Verse[] 
 }
 
 interface ParableProps {
@@ -69,6 +71,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 const ParablePage: React.SFC<ParableProps> = ({parable, parable_content}) => {
+  const verses = parable_content.verses
+  const reference = parable_content.reference
+  
   return (
     <div className="container">
       <Head>
@@ -78,14 +83,20 @@ const ParablePage: React.SFC<ParableProps> = ({parable, parable_content}) => {
       <main>
         <Link href="/"><a><button>Back to Home</button></a></Link>   
         <h1 className="title">{parable.title}</h1>
-        { parable.startVerse !== parable.endVerse
+        <h2>{reference}</h2>
+        {/* parable.startVerse !== parable.endVerse
           ?
           <h2>{parable.book} {parable.chapter}:{parable.startVerse}-{parable.endVerse}</h2>
           :
           <h2>{parable.book} {parable.chapter}:{parable.startVerse}</h2>
-        }
+        */}
         <div className="grid">
-          <p className="description">{parable_content.text}</p>
+          <p className="description">{verses.map((verse) => {
+              return (
+                <span key={`verse-${verse.verse}`}><sup>{verse.verse}</sup>{verse.text}</span>
+              )
+            })}
+          </p>
         </div>
       </main>
       <footer>

@@ -5,3 +5,8 @@ export interface Parable {
   startVerse: number,
   endVerse: number
 }
+
+export interface Verse {
+  text: string,
+  verse: number
+}
