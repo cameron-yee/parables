@@ -8,7 +8,67 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import fs from 'fs'
 import path from 'path'
 
-const Parable = ({parable, parable_content}) => {
+import { Parable } from '../../interfaces'
+
+
+// Local interfaces
+interface ParableContent {
+  text: string
+}
+
+interface ParableProps {
+  parable: Parable,
+  parable_content: ParableContent
+}
+// End local interfaces
+
+export async function http<T>(request: RequestInfo): Promise<T> {
+  const response = await fetch(request)
+  const body = await response.json()
+  return body
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const parables_path: string = path.join(process.cwd(), 'parables.json')
+  const parables: Parable[] = JSON.parse(fs.readFileSync(parables_path, 'utf8'))
+  
+  const paths: string[] = parables.map((parable) => `/parable/${parable.title.toLowerCase().replace(/\s/g, '-').replace(/[\(\)]/g, '')}`)
+  
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const parables_path: string = path.join(process.cwd(), 'parables.json')
+  const parables: Parable[] = JSON.parse(fs.readFileSync(parables_path, 'utf8'))
+
+  let i: number = 0
+  for (; i < parables.length; i++) {
+    if (parables[i].title.toLowerCase().replace(/\s/g, '-').replace(/[\(\)]/g, '') == params.title) {
+      break 
+    }
+  }
+
+  const parable: Parable = parables[i]
+  const is_parable_one_verse: boolean = parable.startVerse === parable.endVerse
+
+  let parable_content: ParableContent  
+  if (is_parable_one_verse) {
+    parable_content = await http<ParableContent>(`https://bible-api.com/${parable.book.toLowerCase()}%20${parable.chapter}:${parable.startVerse}`)
+  } else {
+    parable_content = await http<ParableContent>(`https://bible-api.com/${parable.book.toLowerCase()}+${parable.chapter}:${parable.startVerse}-${parable.endVerse}`)
+  }
+  
+  return {
+    props: {
+      parable,
+      parable_content
+    }
+  }
+}
+
+const ParablePage: React.SFC<ParableProps> = ({parable, parable_content}) => {
   return (
     <div className="container">
       <Head>
@@ -193,46 +253,4 @@ const Parable = ({parable, parable_content}) => {
   )
 }
 
-export const getStaticPaths: any = async () => {
-  const parables_path = path.join(process.cwd(), 'parables.json')
-  const parables = JSON.parse(fs.readFileSync(parables_path, 'utf8'))
-  
-  const paths = parables.map((parable) => `/parable/${parable.title.toLowerCase().replace(/\s/g, '-')}`)
-  
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
-
-export const getStaticProps: GetStaticProps = async ({params}) => {
-  const parables_path = path.join(process.cwd(), 'parables.json')
-  const parables = JSON.parse(fs.readFileSync(parables_path, 'utf8'))
-
-  let i = 0
-  for (; i < parables.length; i++) {
-    if (parables[i].title.toLowerCase().replace(/\s/g, '-') == params.title) {
-      break 
-    }
-  }
-
-  const parable = parables[i]
-  const is_parable_one_verse = parable.startVerse === parable.endVerse
-
-  let res
-  if (is_parable_one_verse) {
-    res = await fetch(`https://bible-api.com/${parable.book.toLowerCase()}%20${parable.chapter}:${parable.startVerse}`)
-  } else {
-    res = await fetch(`https://bible-api.com/${parable.book.toLowerCase()}+${parable.chapter}:${parable.startVerse}-${parable.endVerse}`)
-  }
-  
-  const parable_content = await res.json()
-
-  return {
-    props: {
-      parable,
-      parable_content
-    }
-  }
-}
-
-export default Parable
+export default ParablePage

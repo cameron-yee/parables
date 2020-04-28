@@ -6,9 +6,18 @@ import { GetStaticProps } from 'next'
 import fs from 'fs'
 import path from 'path'
 
+import { Parable } from '../interfaces'
+
+
+// Local interfaces
+interface IndexProps {
+  parables: Parable[]
+}
+// End local interfaces
+
 export const getStaticProps: GetStaticProps = async (context) => {
-  const parables_path = path.join(process.cwd(), 'parables.json')
-  const parables = JSON.parse(fs.readFileSync(parables_path, 'utf8'))  
+  const parables_path: string = path.join(process.cwd(), 'parables.json')
+  const parables: Parable[] = JSON.parse(fs.readFileSync(parables_path, 'utf8'))  
 
   return {
     props: {
@@ -17,7 +26,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-const IndexPage = ({ parables }) => {
+const IndexPage: React.SFC<IndexProps> = ({ parables })  => {
   return (
     <div className="container">
       <Head>
@@ -33,7 +42,7 @@ const IndexPage = ({ parables }) => {
         <div className="grid">
           { parables.map((parable, index) => {
               return (
-                <Link href={`/parable/${parable.title.toLowerCase().replace(/\s/g, '-')}`} key={`parable-${index}`}>
+                <Link href={`/parable/${parable.title.toLowerCase().replace(/\s/g, '-').replace(/[\(\)]/g, '')}`} key={`parable-${index}`}>
                   <a className="card">
                     <h3>{ parable.title }</h3>
                     { parable.startVerse !== parable.endVerse
